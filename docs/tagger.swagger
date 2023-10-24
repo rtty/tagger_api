@@ -1,0 +1,490 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /platform-ai/project-tagger/:
+    get:
+      operationId: platform_ai_project_tagger_retrieve
+      description: ''
+      parameters:
+      - in: query
+        name: project_id
+        schema:
+          type: string
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: tag
+        schema:
+          type: string
+      tags:
+      - platform-ai
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectDetails'
+          description: ''
+  /platform-ai/project-tagger/api/schema/:
+    get:
+      operationId: platform_ai_project_tagger_api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - platform-ai
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /platform-ai/project-tagger/completed:
+    put:
+      operationId: platform_ai_project_tagger_completed_update
+      description: Contains logic to update project tags for all completed projects
+      tags:
+      - platform-ai
+      responses:
+        '200':
+          description: No response body
+  /platform-ai/project-tagger/health:
+    get:
+      operationId: platform_ai_project_tagger_health_retrieve
+      description: ''
+      tags:
+      - platform-ai
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /platform-ai/project-tagger/open:
+    put:
+      operationId: platform_ai_project_tagger_open_update
+      description: Contains logic to update project tags for all open projects
+      tags:
+      - platform-ai
+      responses:
+        '200':
+          description: No response body
+  /platform-ai/project-tagger/tags:
+    put:
+      operationId: platform_ai_project_tagger_tags_update
+      description: Contains logic to update project tags based on project ids
+      tags:
+      - platform-ai
+      responses:
+        '200':
+          description: No response body
+  /v5/project-tagger/:
+    get:
+      operationId: v5_project_tagger_retrieve
+      description: ''
+      parameters:
+      - in: query
+        name: project_id
+        schema:
+          type: string
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      - in: query
+        name: status
+        schema:
+          type: string
+      - in: query
+        name: tag
+        schema:
+          type: string
+      tags:
+      - v5
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectDetails'
+          description: ''
+  /v5/project-tagger/api/schema/:
+    get:
+      operationId: v5_project_tagger_api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - v5
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /v5/project-tagger/completed:
+    put:
+      operationId: v5_project_tagger_completed_update
+      description: Contains logic to update project tags for all completed projects
+      tags:
+      - v5
+      responses:
+        '200':
+          description: No response body
+  /v5/project-tagger/health:
+    get:
+      operationId: v5_project_tagger_health_retrieve
+      description: ''
+      tags:
+      - v5
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v5/project-tagger/open:
+    put:
+      operationId: v5_project_tagger_open_update
+      description: Contains logic to update project tags for all open projects
+      tags:
+      - v5
+      responses:
+        '200':
+          description: No response body
+  /v5/project-tagger/tags:
+    put:
+      operationId: v5_project_tagger_tags_update
+      description: Contains logic to update project tags based on project ids
+      tags:
+      - v5
+      responses:
+        '200':
+          description: No response body
+components:
+  schemas:
+    ProjectDetails:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: string
+        startDate:
+          type: string
+          format: date-time
+        endDate:
+          type: string
+          format: date-time
+        track:
+          type: string
+        appealsEndDate:
+          type: string
+          format: date-time
+        tags:
+          type: string
+          readOnly: true
+        winners:
+          type: string
+          readOnly: true
+      required:
+      - appealsEndDate
+      - endDate
+      - id
+      - name
+      - startDate
+      - tags
+      - track
+      - winners
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: Session

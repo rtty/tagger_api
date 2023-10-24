@@ -1,0 +1,8 @@
+{
+  "api_base_url": "https://api.example.com",
+  "tagging_emsi_type": "internal_no_refresh",
+  "enable_custom_tagging": false,
+  "update_local_before_tagging": false,
+  "extract_confidence": false,
+  "text_length": 300
+}

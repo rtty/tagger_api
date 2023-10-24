@@ -1,0 +1,189 @@
+{
+  "info": {
+    "_postman_id": "0c4ba18d-2c09-4917-9aa0-ade0d51f3eec",
+    "name": "project_tags",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}/health",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}",
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "project_tags - filter on project id and skill (with pagination)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}?page=1&status=open&per_page=10",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}"
+          ],
+          "query": [
+            {
+              "key": "project_id",
+              "value": "9bd8e6a7-b682-401e-bf7f-790daf9f6c60,7e0a375d-3958-4535-94d4-77f2c12d2527",
+              "disabled": true
+            },
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "status",
+              "value": "open"
+            },
+            {
+              "key": "per_page",
+              "value": "10"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update-open-project-tags",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}/open?async=false",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}",
+            "open"
+          ],
+          "query": [
+            {
+              "key": "async",
+              "value": "false"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update-completed-project-tags",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}/completed?async=false",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}",
+            "completed"
+          ],
+          "query": [
+            {
+              "key": "async",
+              "value": "false"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update-open-project-tags - project ids in the body",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"projectId\": [\n        \"9bd8e6a7-b682-401e-bf7f-790daf9f6c60\"\n    ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}/tags",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}",
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "update-project-tags - missing project ids",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base URL}}/{{base Path}}/tags",
+          "host": [
+            "{{base URL}}"
+          ],
+          "path": [
+            "{{base Path}}",
+            "tags"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

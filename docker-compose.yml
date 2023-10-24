@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  project-tag-update:
+    image: project-tag-update:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      - PYTHONUNBUFFERED=0
+    ports:
+      - "0:27"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: /aws/ecs/tagging-tools
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: project_tags

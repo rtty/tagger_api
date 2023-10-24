@@ -1,0 +1,7 @@
+{
+  "aws_dynamodb_url": "http://localhost:8000",
+  "aws_default_region": "us-east-1",
+  "db_collection_projects": "project_details",
+  "tagging_config_path": "tagging_config.json",
+  "skip_skills_path": "skip_skill_list.txt"
+}

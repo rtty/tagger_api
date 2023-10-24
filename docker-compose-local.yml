@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    ports:
+      - "8000:8000"
+    command: -Xmx1g -Xms1g -jar DynamoDBLocal.jar -inMemory
+  project-tag-update:
+    image: project-tag-update:latest
+    container_name: project-tag-update
+    build:
+      context: .
+      dockerfile: ./Dockerfile-local
+    environment:
+      - PYTHONUNBUFFERED=0
+      - AWS_DYNAMODB_URL=http://dynamodb:8000
+      - AWS_ACCESS_KEY_ID=access_key_id
+      - AWS_SECRET_ACCESS_KEY=secret_access_key
+      - AWS_DEFAULT_REGION=us-east-1
+      - ENV_TAGGING_API_BASE_URL=https://api.example-dev.com
+      - ENV_BASE_URL=https://api.example-dev.com
+      - ENV_AUTH0_URL=https://example-dev.auth0.com/oauth/token
+      - ENV_AUTH0_AUDIENCE=https://m2m.example-dev.com/
+      - ENV_AUTH0_CLIENT_ID=8QovDh27SrDu1XSs68m21A1NBP8isvOt
+      - ENV_AUTH0_CLIENT_SECRET=3QVxxu20QnagdH-McWhVz0WfsQzA1F8taDdGDI4XphgpEYZPcMTF4lX3aeOIeCzh
+      - ENV_AUTH0_PROXY_SERVER_URL=https://auth0proxy.example.com/token/
+      - ENV_BUSAPI_URL=https://api.example-dev.com/v5
+    ports:
+      - "8002:27"
+    links:
+      - dynamodb
+    volumes:
+      - ./project_tool/API/project_tags:/app
+
+networks:
+  default:
+    external:
+      name: COMPANY_API_NET
